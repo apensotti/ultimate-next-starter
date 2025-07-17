@@ -119,6 +119,20 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - The application features hot reloading - changes are reflected immediately
 - This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a custom font family from Vercel
 
+### ShadCN Customization
+- Global styles are managed in `app/globals.css`
+  - Theme variables are defined here (colors, spacing, etc.)
+  - Default dark/light mode preferences
+  - Custom utility classes
+- Component customization:
+  - Components are located in `components/ui/`
+  - Modify component styles in their respective `.tsx` files
+  - Use the `cn()` utility for conditional classes
+- Theme configuration:
+  - Update `components.json` for build settings
+  - Modify `tailwind.config.js` for theme-wide changes
+  - Use `themes.js` for custom theme definitions
+
 ## 🚀 Deployment
 
 ### Deploy to Vercel
