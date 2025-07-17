@@ -3,6 +3,17 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { ExternalLink, FileIcon, Globe, Terminal } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import CustomCodeBlock from "@/components/home/CodeBlock";
+
+const installCommands = `git clone https://github.com/apensotti/ultimate-next-starter.git
+cd ultimate-next-starter
+npm install`;
 
 export default function Home() {
   return (
@@ -24,111 +35,166 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Features Card */}
-        <Card>
-          <CardHeader>
-            <CardTitle>🚀 Core Technologies</CardTitle>
-          </CardHeader>
-          <CardContent className="grid gap-4 sm:grid-cols-2">
-            <div className="flex flex-col gap-2">
-              <h3 className="font-semibold">Frontend</h3>
-              <ul className="space-y-2 text-sm">
-                <li>• Next.js 14</li>
-                <li>• ShadCN UI Components</li>
-                <li>• TypeScript</li>
-                <li>• Tailwind CSS</li>
-              </ul>
-            </div>
-            <div className="flex flex-col gap-2">
-              <h3 className="font-semibold">Backend</h3>
-              <ul className="space-y-2 text-sm">
-                <li>• Supabase Authentication</li>
-                <li>• Supabase Database</li>
-                <li>• Supabase Blob Storage</li>
-              </ul>
-            </div>
-          </CardContent>
-        </Card>
-
         {/* Getting Started */}
         <Card>
           <CardHeader>
             <CardTitle>🏁 Getting Started</CardTitle>
             <CardDescription>Follow these steps to set up your project</CardDescription>
           </CardHeader>
-          <CardContent className="space-y-6">
-            <div>
-              <h3 className="font-semibold mb-3">1. Clone and Install</h3>
-              <div className="bg-muted p-4 rounded-lg font-mono text-sm">
-                <div>git clone https://github.com/apensotti/ultimate-next-starter.git</div>
-                <div>cd ultimate-next-starter</div>
-                <div>npm install</div>
-              </div>
-            </div>
-            
-            <div>
-              <h3 className="font-semibold mb-3">2. Supabase Setup</h3>
-              <ol className="list-decimal list-inside space-y-2 text-sm">
-                <li>Create a Supabase account at <a href="https://supabase.com" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">supabase.com</a></li>
-                <li>Create a new organization (Personal/Free Plan works fine)</li>
-                <li className="ml-4">Create a new project:
-                  <ul className="list-disc ml-8 mt-2 space-y-1">
-                    <li>Choose your organization</li>
-                    <li>Name your project</li>
-                    <li>Set a secure database password</li>
-                    <li>Choose a region closest to your users</li>
-                  </ul>
-                </li>
-                <li>Copy <code className="bg-muted px-1 rounded">.env.example</code> to <code className="bg-muted px-1 rounded">.env.local</code></li>
-                <li className="ml-4">Get your API credentials:
-                  <ul className="list-disc ml-8 mt-2 space-y-1">
-                    <li>Go to Project Settings {'>'}API in dashboard</li>
-                    <li>Copy Project URL to <code className="bg-muted px-1 rounded">NEXT_PUBLIC_SUPABASE_URL</code></li>
-                    <li>Copy anon/public key to <code className="bg-muted px-1 rounded">NEXT_PUBLIC_SUPABASE_ANON_KEY</code></li>
-                  </ul>
-                </li>
-              </ol>
-            </div>
+          <CardContent>
+            <Accordion type="single" collapsible className="w-full">
+              <AccordionItem value="clone">
+                <AccordionTrigger>1. Clone and Install</AccordionTrigger>
+                <AccordionContent>
+                  <CustomCodeBlock
+                    language="bash"
+                    code={installCommands}
+                    showHeader={false}
+                  />
+                </AccordionContent>
+              </AccordionItem>
 
-            <div>
-              <h3 className="font-semibold mb-3">3. Google OAuth Setup</h3>
-              <ol className="list-decimal list-inside space-y-2 text-sm">
-                <li className="ml-4">Create Google OAuth Credentials:
-                  <ul className="list-disc ml-8 mt-2 space-y-1">
-                    <li>Go to <a href="https://console.cloud.google.com" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">Google Cloud Console</a></li>
-                    <li>Create/select a project</li>
-                    <li>Navigate to APIs & Services {'>'}Credentials</li>
-                    <li>Create OAuth client ID for Web application</li>
-                  </ul>
-                </li>
-                <li className="ml-4">Add authorized URIs:
-                  <div className="bg-muted p-2 rounded-lg mt-2 space-y-1">
-                    <div className="font-mono text-xs">Origins:</div>
-                    <div className="font-mono text-xs ml-4">http://localhost:3000</div>
-                    <div className="font-mono text-xs ml-4">https://YOUR_PRODUCTION_URL.com</div>
-                    <div className="font-mono text-xs mt-2">Redirect URIs:</div>
-                    <div className="font-mono text-xs ml-4">http://localhost:3000/auth/callback</div>
-                    <div className="font-mono text-xs ml-4">https://YOUR_PRODUCTION_URL.com/auth/callback</div>
+              <AccordionItem value="supabase">
+                <AccordionTrigger>2. Supabase Setup</AccordionTrigger>
+                <AccordionContent>
+                  <ol className="list-decimal list-inside space-y-2 text-sm">
+                    <li>Create a Supabase account at <a href="https://supabase.com" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">supabase.com</a></li>
+                    <li>Create a new organization (Personal/Free Plan works fine)</li>
+                    <li className="ml-4">Create a new project:
+                      <ul className="list-disc ml-8 mt-2 space-y-1">
+                        <li>Choose your organization</li>
+                        <li>Name your project</li>
+                        <li>Set a secure database password</li>
+                        <li>Choose a region closest to your users</li>
+                      </ul>
+                    </li>
+                    <li>Copy <code className="bg-muted px-1 rounded">.env.example</code> to <code className="bg-muted px-1 rounded">.env.local</code></li>
+                    <li>Get your API credentials:
+                      <ul className="list-disc ml-8 mt-2 space-y-1">
+                        <li>Go to Project Settings {'>'}API in dashboard</li>
+                        <li>Copy Project URL to <code className="bg-muted px-1 rounded">NEXT_PUBLIC_SUPABASE_URL</code></li>
+                        <li>Copy anon/public key to <code className="bg-muted px-1 rounded">NEXT_PUBLIC_SUPABASE_ANON_KEY</code></li>
+                      </ul>
+                    </li>
+                  </ol>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="google">
+                <AccordionTrigger>3. Google OAuth Setup</AccordionTrigger>
+                <AccordionContent>
+                  <ol className="list-decimal list-inside space-y-2 text-sm">
+                    <li className="ml-4">Create Google OAuth Credentials:
+                      <ul className="list-disc ml-8 mt-2 space-y-1">
+                        <li>Go to <a href="https://console.cloud.google.com" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">Google Cloud Console</a></li>
+                        <li>Create/select a project</li>
+                        <li>Navigate to APIs & Services {'>'}Credentials</li>
+                        <li>Create OAuth client ID for Web application</li>
+                      </ul>
+                    </li>
+                    <li className="ml-4">Add authorized URIs:
+                      <div className="bg-muted p-2 rounded-lg mt-2 space-y-1">
+                        <div className="font-mono text-xs">Origins:</div>
+                        <div className="font-mono text-xs ml-4">http://localhost:3000</div>
+                        <div className="font-mono text-xs ml-4">https://YOUR_PRODUCTION_URL.com</div>
+                        <div className="font-mono text-xs mt-2">Redirect URIs:</div>
+                        <div className="font-mono text-xs ml-4">http://localhost:3000/auth/callback</div>
+                        <div className="font-mono text-xs ml-4">https://YOUR_PRODUCTION_URL.com/auth/callback</div>
+                      </div>
+                    </li>
+                    <li className="ml-4">Configure Supabase Auth:
+                      <ul className="list-disc ml-8 mt-2 space-y-1">
+                        <li>Go to Authentication {'>'}Providers in Supabase</li>
+                        <li>Enable Google provider</li>
+                        <li>Enter your Google Client ID and Secret</li>
+                        <li>Save the configuration</li>
+                      </ul>
+                    </li>
+                  </ol>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="auth">
+                <AccordionTrigger>4. Secure Your Routes</AccordionTrigger>
+                <AccordionContent>
+                  <div className="space-y-4">
+                    <p className="text-sm">Protect your routes using the AuthGuard component:</p>
+                    
+                    <div className="space-y-4">
+                      <CustomCodeBlock
+                        filename="components/auth/AuthGuard.tsx"
+                        language="typescript"
+                        code={`"use client";
+
+import { useEffect, useState } from "react";
+import { createClient } from "@/utils/supabase/client";
+import { useRouter } from "next/navigation";
+
+export default function AuthGuard({ children }) {
+  const [isLoading, setIsLoading] = useState(true);
+  const router = useRouter();
+  const supabase = createClient();
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) {
+        router.replace("/login");
+        return;
+      }
+      setIsLoading(false);
+    };
+    checkAuth();
+  }, [router, supabase.auth]);
+
+  if (isLoading) {
+    return <div className="flex items-center justify-center min-h-screen">
+      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" />
+    </div>;
+  }
+
+  return <>{children}</>;
+}`}
+                      />
+
+                      <CustomCodeBlock
+                        filename="app/dashboard/page.tsx"
+                        language="typescript"
+                        code={`import AuthGuard from "@/components/auth/AuthGuard";
+
+export default function DashboardPage() {
+  return (
+    <AuthGuard>
+      <div>Your protected content here</div>
+    </AuthGuard>
+  );
+}`}
+                      />
+                    </div>
+
+                    <div className="text-sm space-y-2">
+                      <p className="font-semibold">Features:</p>
+                      <ul className="list-disc ml-4 space-y-1">
+                        <li>Automatic session checking</li>
+                        <li>Loading state while verifying auth</li>
+                        <li>Automatic redirect to login page</li>
+                        <li>Client-side protection for sensitive content</li>
+                      </ul>
+                    </div>
                   </div>
-                </li>
-                <li className="ml-4">Configure Supabase Auth:
-                  <ul className="list-disc ml-8 mt-2 space-y-1">
-                    <li>Go to Authentication {'>'}Providers in Supabase</li>
-                    <li>Enable Google provider</li>
-                    <li>Enter your Google Client ID and Secret</li>
-                    <li>Save the configuration</li>
-                  </ul>
-                </li>
-              </ol>
-            </div>
+                </AccordionContent>
+              </AccordionItem>
 
-            <div>
-              <h3 className="font-semibold mb-3">4. Start Development</h3>
-              <div className="bg-muted p-4 rounded-lg font-mono text-sm">
-                <div>npm run dev</div>
-              </div>
-              <p className="text-sm mt-2 text-muted-foreground">Visit <code className="bg-muted px-1 rounded">http://localhost:3000</code> to see your app</p>
-            </div>
+              <AccordionItem value="development">
+                <AccordionTrigger>5. Start Development</AccordionTrigger>
+                <AccordionContent>
+                  <div className="bg-muted p-4 rounded-lg font-mono text-sm">
+                    <div>npm run dev</div>
+                  </div>
+                  <p className="text-sm mt-2 text-muted-foreground">Visit <code className="bg-muted px-1 rounded">http://localhost:3000</code> to see your app</p>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </CardContent>
         </Card>
 

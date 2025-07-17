@@ -53,7 +53,7 @@ export function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b backdrop-blur bg-background/60 w-full">
       <div className="flex h-16 items-center px-4 container mx-auto">
         <Link href="/" className="font-bold flex gap-2">
           <Image src="/favicon.ico" alt="Next.js Logo" width={24} height={24} className="bg-black rounded-full p-1"/>
@@ -62,7 +62,7 @@ export function Navbar() {
 
         <div className="ml-auto flex items-center space-x-4">
           {user ? (
-            <DropdownMenu>
+            <DropdownMenu modal={false}>
               <DropdownMenuTrigger className="focus:outline-none">
                 <Avatar>
                   <AvatarImage src={user.user_metadata.avatar_url} />
