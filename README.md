@@ -43,7 +43,7 @@ Before you begin, ensure you have the following installed:
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/ultimate-next-starter.git
+git clone https://github.com/apensotti/ultimate-next-starter.git
 
 # Navigate to the project directory
 cd ultimate-next-starter
@@ -89,6 +89,8 @@ supabase link --project-ref <project-id>
 # You can find your <project-id> in your project's dashboard URL: 
 # https://supabase.com/dashboard/project/<project-id>
 ``` 
+
+# TODO: Adding auth providers in supabase
 
 #### Database Setup *(Optional)*
 
@@ -139,7 +141,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 The easiest way to deploy your Next.js app is to use Vercel, the platform from the creators of Next.js.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fapensotti%2Fultimate-next-starter&env=NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_ANON_KEY&envDescription=Required%20environment%20variables%20for%20the%20application.&envLink=https%3A%2F%2Fgithub.com%2FYOUR_USERNAME%2Fultimate-next-starter%2Fblob%2Fmain%2F.env.example)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fapensotti%2Fultimate-next-starter&env=NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_ANON_KEY&envDescription=Required%20environment%20variables%20for%20the%20application.&envLink=https%3A%2F%2Fgithub.com%2Fapensotti%2Fultimate-next-starter%2Fblob%2Fmain%2F.env.example)
 
 ### Deployment Checklist
 - Ensure all environment variables are properly set

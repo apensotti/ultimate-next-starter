@@ -1,7 +1,7 @@
 import { headers } from "next/headers";
-import { Login } from "@/components/auth/Login";
+import { Signup } from "@/components/auth/Signup";
 
-export default async function LoginPage({
+export default async function SignupPage({
   searchParams,
 }: {
   searchParams?: { [key: string]: string | string[] | undefined };
@@ -9,5 +9,5 @@ export default async function LoginPage({
   const headersList = await headers();
   const host = headersList.get("host");
 
-  return <Login host={host} searchParams={searchParams} />;
-}
+  return <Signup host={host} searchParams={searchParams} />;
+} 
