@@ -73,7 +73,7 @@ export default function Home() {
                       <ul className="list-disc ml-8 mt-2 space-y-1">
                         <li>Go to Project Settings {'>'}API in dashboard</li>
                         <li>Copy Project URL to <code className="bg-muted px-1 rounded">NEXT_PUBLIC_SUPABASE_URL</code></li>
-                        <li>Copy anon/public key to <code className="bg-muted px-1 rounded">NEXT_PUBLIC_SUPABASE_ANON_KEY</code></li>
+                        <li>Copy anon/public key to <code className="bg-muted px-1 rounded">NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY</code></li>
                       </ul>
                     </li>
                   </ol>
@@ -243,7 +243,7 @@ export default function DashboardPage() {
           <CardContent className="flex flex-col items-center gap-4">
             <Button size="lg" asChild>
               <a
-                href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fapensotti%2Fultimate-next-starter&env=NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_ANON_KEY"
+                href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fapensotti%2Fultimate-next-starter&env=NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY"
                 target="_blank"
                 rel="noopener noreferrer"
               >
